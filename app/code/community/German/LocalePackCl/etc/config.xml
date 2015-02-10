@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  German
+ * @package   German_LocalePack
+ * @authors   MaWoScha <mawoscha@siempro.co, http://www.siempro.co/>
+ * @developer MaWoScha <mawoscha@siempro.co, http://www.siempro.co/>
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <German_LocalePackCl>
+            <version>0.1.0</version>
+            <locale>es_CL</locale>
+            <title>Spanish (Chile) Language Pack</title>
+            <link_git>https://github.com/MaWoScha/German_LocalePack_es_CL</link_git>
+            <link_mage></link_mage>
+        </German_LocalePackCl>
+    </modules>
+
+    <global>
+        <models>
+            <localepackcl>
+                <class>German_LocalePackCl_Model</class>
+            </localepackcl>
+        </models>
+        <helpers>
+            <localepackcl>
+                <class>German_LocalePackCl_Helper</class>
+            </localepackcl>
+        </helpers>
+        <blocks>
+            <localepackcl>
+                <class>German_LocalePackCl_Block</class>
+            </localepackcl>
+        </blocks>
+        <events>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <localepackcl>
+                        <class>localepackcl/observer</class>
+                        <method>adminhtmlControllerActionPredispatchStart</method>
+                    </localepackcl>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
+        </events>
+    </global>
+	
+    <default>
+        <localepackcl>
+             <notification>
+                <url>https://github.com/MaWoScha/German_LocalePack_es_CL</url>
+            </notification>
+        </localepackcl>
+        <magesetup>
+            <default_country>CL</default_country>
+        </magesetup>
+    </default>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <localepackcl>
+                    <files>
+                    	<default>localepackcl.xml</default>
+                    </files>
+                </localepackcl>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <German_LocalePackCl>
+                    <files>
+                        <localepackcl>German_LocaleCl.csv</localepackcl>
+                        <default>German_LocaleEs.csv</default>
+                    </files>
+                </German_LocalePackCl>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children> <!--
+                                        <localepacks translate="title" module="localepackcl">
+                                            <title>Language Packs</title>
+                                    		<children> -->
+                                        		<localepackcl translate="title" module="localepackcl">
+                                            		<title>Spanish (Chile) Language Pack</title>
+                                        		</localepackcl> <!--
+                                    		</children>
+                                        </localepacks> -->
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+</config>
